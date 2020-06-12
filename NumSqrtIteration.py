@@ -6,6 +6,8 @@
 числа.
 Виконав : Канюка Р. 122В
 '''
+from memory_profiler import memory_usage
+from datetime import datetime
 import numpy as np
 import random
 while True:
@@ -17,16 +19,21 @@ while True:
             break
         except ValueError :
             print('Введіть число!')
+    #Реалізація алгоритму
+    start = datetime.now()
     while(len(n) > 1):
         summ = 0
         for i in range(len(n)):
             summ += int(n[i])
         n = str(summ)
+    print("Кількість використаних МБ :",memory_usage())
+    print("Затрачений час :",datetime.now() - start)
     print("цифровий корінь ", beg , "=", summ)
     quest = input('Завершити програму? Y/N : ')
     if(quest == 'Y' or quest == 'y'):
         break
 """
 Час розробки : 5 - 7 хв
-
+Реалізуються доволі просто ,проте читабельність коду не висока ,
+використовує менший обсяг пам'яті.
 """
